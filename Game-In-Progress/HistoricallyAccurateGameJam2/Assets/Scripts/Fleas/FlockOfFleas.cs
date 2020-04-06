@@ -39,6 +39,8 @@ namespace HAGJ2.Fleas
         {
             foreach (Flea flea in fleas)
             {
+                if (flea == null) { yield break; }
+
                 flea.transform.parent = null;
                 flea.JumpOnTarget(target);
                 yield return new WaitForSeconds(jumpTimeGaps);
@@ -51,6 +53,7 @@ namespace HAGJ2.Fleas
         {
             foreach (Flea flea in fleas)
             {
+                if (flea == null) { break; }
                 flea.DisableAnimator();
             }
 
@@ -61,6 +64,7 @@ namespace HAGJ2.Fleas
         {
             foreach (Flea flea in fleas)
             {
+                if (flea == null) { yield break; }
                 flea.EnableAnimator();
                 yield return new WaitForSeconds(idleTimeGaps);
             }

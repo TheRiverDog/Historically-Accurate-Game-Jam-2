@@ -15,8 +15,8 @@ TagManager:
   - 
   - Fleas
   - Player
-  - 
-  - 
+  - Ground
+  - DissapearingForeground
   - 
   - 
   - 
@@ -41,9 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1697873687
+  - name: Platforms
+    uniqueID: 525284879
     locked: 0
   - name: Flea
     uniqueID: 1787228625
+    locked: 0
+  - name: Player
+    uniqueID: 1697873687
+    locked: 0
+  - name: Disappearing foreground
+    uniqueID: 2894677819
     locked: 0
