@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         myRigidbody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        //myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
     private void Jump()

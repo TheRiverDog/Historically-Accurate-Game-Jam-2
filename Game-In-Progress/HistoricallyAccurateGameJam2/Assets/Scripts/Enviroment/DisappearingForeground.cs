@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Cinemachine;
+
 namespace HAGJ2.Enviroment
 {
     public class DisappearingForeground : MonoBehaviour
     {
+        [SerializeField] float transitionTime = 3f;
+
         SpriteRenderer mySpriteRenderer;
         Color startingColor;
         Color startingColorOpaque;
@@ -22,19 +26,26 @@ namespace HAGJ2.Enviroment
             SetOpaque();
         }
 
-        private void OnTriggerStay2D(Collider2D other) 
+        private void OnTriggerEnter2D(Collider2D other) 
         {
             if (other.tag == "Player")
             {
-                mySpriteRenderer.color = startingColor;
+                FadeOut();
+
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<Animator>().SetTrigger("CMTrigger");
             }
+
         }
 
         private void OnTriggerExit2D(Collider2D other) 
         {
             if (other.tag == "Player")
             {
-                mySpriteRenderer.color = startingColorOpaque;
+                FadeIn();
+
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<Animator>().SetTrigger("CMTrigger");
             }
         }
 
@@ -43,6 +54,57 @@ namespace HAGJ2.Enviroment
             Color opaque = startingColor;
             opaque.a = 1f;
             startingColorOpaque = opaque;
+        }
+
+        private void FadeIn()
+        {
+            StopAllCoroutines();
+            StartCoroutine(SlowFade(true));
+        }
+
+        private void FadeOut()
+        {
+            StopAllCoroutines();
+            StartCoroutine(SlowFade(false));
+        }
+
+        private IEnumerator SlowFade(bool isTransparent)
+        {
+            float newAlphaAdd;
+
+            if (isTransparent)
+            {
+                while (mySpriteRenderer.color.a <= 1f)
+                {
+                    newAlphaAdd = Time.deltaTime / transitionTime;
+                    Color newColor = new Color(
+                        mySpriteRenderer.color.r,
+                        mySpriteRenderer.color.g,
+                        mySpriteRenderer.color.b,
+                        mySpriteRenderer.color.a + newAlphaAdd);
+
+                    mySpriteRenderer.color = newColor;
+
+                    yield return null;
+                }
+
+            }
+            else
+            {
+                while (mySpriteRenderer.color.a >= 0f)
+                {
+                    newAlphaAdd = Time.deltaTime / transitionTime;
+                    Color newColor = new Color(
+                        mySpriteRenderer.color.r,
+                        mySpriteRenderer.color.g,
+                        mySpriteRenderer.color.b,
+                        mySpriteRenderer.color.a - newAlphaAdd);
+
+                    mySpriteRenderer.color = newColor;
+
+                    yield return null;
+                }
+            }
         }
     }
 }

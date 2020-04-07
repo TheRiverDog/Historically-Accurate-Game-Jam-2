@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerFeets
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Ground
   - DissapearingForeground
-  - 
+  - Lights
   - 
   - 
   - 
@@ -41,11 +42,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 1060360181
+    locked: 0
+  - name: Land
+    uniqueID: 79241285
+    locked: 0
+  - name: Ships
+    uniqueID: 4058676235
+    locked: 0
   - name: Platforms
     uniqueID: 525284879
     locked: 0
   - name: Flea
     uniqueID: 1787228625
+    locked: 0
+  - name: Lights
+    uniqueID: 413198147
     locked: 0
   - name: Player
     uniqueID: 1697873687
