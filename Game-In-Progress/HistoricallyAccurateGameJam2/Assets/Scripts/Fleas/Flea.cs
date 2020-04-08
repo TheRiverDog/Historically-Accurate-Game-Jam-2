@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+using HAGJ2.Events;
+using System;
 
 namespace HAGJ2.Fleas
 {
     public class Flea : MonoBehaviour
     {
+        [SerializeField] IntVariable fleaScore = null;
         [SerializeField] Animator myAnimator = null;
+
+        [Header("Properities")]
         [SerializeField] float lunchSpeed = 1f;
         [SerializeField] float jumpHeight = 0.1f;
         [SerializeField] float jumpHeightPeriod = 2;
+
+        [SerializeField] UnityEvent fleaCollected = null;
 
         GameObject target;
         bool isJumping = false;
@@ -77,11 +86,19 @@ namespace HAGJ2.Fleas
             {
                 if (target.tag == "Player")
                 {
-                    // TODO Add Flea To Counter
+                    AddFlea();
                 }
                 Destroy(gameObject);
             }
 
+        }
+
+        private void AddFlea()
+        {
+            int newFleasValue = fleaScore.GetValue() + 1;
+            fleaScore.SetValue(newFleasValue);
+
+            fleaCollected.Invoke();
         }
     }
 }
