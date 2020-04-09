@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] AudioSource jumpSFX = null;
     [SerializeField] Collider2D myFeet = null;
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            jumpSFX.Play();
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidbody.velocity += jumpVelocityToAdd;
         }

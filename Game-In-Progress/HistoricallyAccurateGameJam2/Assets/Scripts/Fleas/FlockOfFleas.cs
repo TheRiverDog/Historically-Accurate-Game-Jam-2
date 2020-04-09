@@ -43,7 +43,8 @@ namespace HAGJ2.Fleas
 
                 flea.transform.parent = null;
                 flea.JumpOnTarget(target);
-                flea.GetComponent<AudioSource>().Play();
+                AudioClip fleaJump = flea.GetComponent<AudioSource>().clip;
+                AudioSource.PlayClipAtPoint(fleaJump, flea.transform.position);
 
                 yield return new WaitForSeconds(jumpTimeGaps);
             }
