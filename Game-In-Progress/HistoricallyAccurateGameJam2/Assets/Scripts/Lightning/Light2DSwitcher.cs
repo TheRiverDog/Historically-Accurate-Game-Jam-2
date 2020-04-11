@@ -12,6 +12,8 @@ namespace HAGJ2.Lights
         [SerializeField] Color colorToSwitch = new Color();
         [SerializeField] float switchingDistance = 3f;
 
+        [SerializeField] float transitionTime = 2f;
+
         Color startColor;
 
         private void Start() 
@@ -34,14 +36,26 @@ namespace HAGJ2.Lights
                 float distnace = Vector3.Distance(other.transform.position, switcherPos);
                 if (distnace <= switchingDistance)
                 {
-                    lightToSwitch.color = colorToSwitch;
+                    StopAllCoroutines();
+                    StartCoroutine(SmoothTransition(colorToSwitch));
                 }
                 else
                 {
-                    lightToSwitch.color = startColor;
+                    StopAllCoroutines();
+                    StartCoroutine(SmoothTransition(startColor));
                 }
             }
 
+        }
+
+        private IEnumerator SmoothTransition(Color finalColor)
+        { 
+            while (lightToSwitch.color != finalColor)
+            {
+                float timeStep = transitionTime / Time.deltaTime;
+                lightToSwitch.color = Color.Lerp(lightToSwitch.color, finalColor, Time.deltaTime/transitionTime);
+                yield return null;
+            }
         }
     }
 }
