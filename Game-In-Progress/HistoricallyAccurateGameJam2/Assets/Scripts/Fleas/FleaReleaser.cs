@@ -23,6 +23,8 @@ namespace HAGJ2.Fleas
             {
                 other.gameObject.GetComponent<Rigidbody2D>().simulated = false;
                 other.gameObject.GetComponent<PlayerController>().DisablePlayerControlls();
+                other.gameObject.GetComponent<Animator>().SetBool("Running", false);
+
                 fleasReleased = true;
                 StartCoroutine(ReleaseFleas(other));
             }
