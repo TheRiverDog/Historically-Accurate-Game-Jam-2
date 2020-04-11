@@ -30,6 +30,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if (other.gameObject.tag == "MovingPlatform")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+        if (other.gameObject.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
+    }
+
     private void Run()
     {
         float controlThrow = Input.GetAxis("Horizontal");
@@ -47,8 +63,10 @@ public class PlayerController : MonoBehaviour
 
         if (!isTouchingGround && !isTouchingPlatform) { return; }
 
+
         if (Input.GetButtonDown("Jump"))
         {
+            print("jump");
             jumpSFX.Play();
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidbody.velocity += jumpVelocityToAdd;

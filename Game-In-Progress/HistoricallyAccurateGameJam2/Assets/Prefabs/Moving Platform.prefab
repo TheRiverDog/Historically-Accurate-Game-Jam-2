@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7597008421481404724}
   m_Layer: 0
   m_Name: Platform Limit
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5097673921227511103}
   m_Layer: 0
   m_Name: Down
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6709244452242400803}
   m_Layer: 0
   m_Name: Up
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 3190659817224779733}
   m_Layer: 0
   m_Name: Platform Sprite
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 7763005539336193616}
   m_Layer: 0
   m_Name: Moving Platform
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,10 +277,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 395806290775198432}
-  - component: {fileID: 5531113998522807759}
+  - component: {fileID: 7255145001521008249}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ Transform:
   m_Father: {fileID: 1348941264763287534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5531113998522807759
+--- !u!61 &7255145001521008249
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
