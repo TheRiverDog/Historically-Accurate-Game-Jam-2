@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace HAGJ2.Fleas
 {
@@ -9,6 +11,7 @@ namespace HAGJ2.Fleas
         [SerializeField] IntVariable fleasCollected = null;
         [SerializeField] Flea fleaPrefab = null;
         [SerializeField] GameObject townToRelease = null;
+        [SerializeField] PlayableDirector endingCinematicsDir = null;
 
         [SerializeField] float fleaReleaseTimeGap = 0.3f;
 
@@ -18,6 +21,8 @@ namespace HAGJ2.Fleas
         {
             if (other.tag == "Player" && !fleasReleased)
             {
+                other.gameObject.GetComponent<Rigidbody2D>().simulated = false;
+                other.gameObject.GetComponent<PlayerController>().DisablePlayerControlls();
                 fleasReleased = true;
                 StartCoroutine(ReleaseFleas(other));
             }
@@ -34,6 +39,13 @@ namespace HAGJ2.Fleas
 
                 yield return new WaitForSeconds(fleaReleaseTimeGap);
             }
+
+            PlayEndingCinematic();
+        }
+
+        private void PlayEndingCinematic()
+        {
+            endingCinematicsDir.Play();
         }
     }
 

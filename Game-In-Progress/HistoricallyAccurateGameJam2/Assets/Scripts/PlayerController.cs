@@ -12,17 +12,22 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myRigidbody;
     Animator myAnimator;
 
+    bool isControllAllowed = true;
+
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
-        Run();
-        Jump();
-        FlipSprite();
+        if (isControllAllowed)
+        {
+            Run();
+            Jump();
+            FlipSprite();
+        }
     }
 
     private void Run()
@@ -57,5 +62,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
         }
+    }
+
+    public void DisablePlayerControlls()
+    {
+        isControllAllowed = false;
     }
 }

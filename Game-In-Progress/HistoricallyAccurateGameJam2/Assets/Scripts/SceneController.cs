@@ -25,6 +25,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(currentScene);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     private void LoadNextScene()
     {
         SceneManager.LoadScene(currentScene + 1);

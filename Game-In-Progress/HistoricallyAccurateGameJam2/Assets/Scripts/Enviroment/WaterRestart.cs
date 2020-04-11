@@ -10,8 +10,11 @@ public class WaterRestart : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SpriteRenderer playerSprite = other.gameObject.GetComponentInChildren<SpriteRenderer>();
-            playerSprite.enabled = false;
+            SpriteRenderer[] sprites = other.gameObject.GetComponentsInChildren<SpriteRenderer>();
+            foreach(var sprite in sprites)
+            {
+                sprite.enabled = false;
+            }
 
             Rigidbody2D playerRB = other.gameObject.GetComponent<Rigidbody2D>();
             playerRB.simulated = false;

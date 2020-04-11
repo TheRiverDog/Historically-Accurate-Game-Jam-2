@@ -9,7 +9,6 @@ namespace HAGJ2.Platforms
         [SerializeField] Transform platform = null;
         [SerializeField] public Vector2 movementVector = Vector2.up;
         [SerializeField] float maxAngel = 0f;
-        [Range(1,10)]
         [SerializeField] float period = 5f;
 
         Vector3 startingPos;
