@@ -25,8 +25,15 @@ public class PlayerController : MonoBehaviour
         if (isControllAllowed)
         {
             Run();
-            Jump();
             FlipSprite();
+        }
+    }
+
+    private void Update() 
+    {
+        if (isControllAllowed)
+        {
+            Jump();
         }
     }
 
@@ -58,13 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        bool isTouchingGround = myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        bool isTouchingPlatform = myFeet.IsTouchingLayers(LayerMask.GetMask("MovingPlatform"));
-
-        if (!isTouchingGround && !isTouchingPlatform) { return; }
-
-
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && myFeet.gameObject.GetComponent<GroundCheck>().isGrounded)
         {
             jumpSFX.Play();
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);

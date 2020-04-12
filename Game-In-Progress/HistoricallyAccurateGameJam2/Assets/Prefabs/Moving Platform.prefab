@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8756049228361711659}
   - component: {fileID: 7597008421481404724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform Limit
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406897981881460232}
   - component: {fileID: 5097673921227511103}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3624986629426942199}
   - component: {fileID: 6709244452242400803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Up
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6316523380027026400}
   - component: {fileID: 3190659817224779733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform Sprite
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348941264763287534}
   - component: {fileID: 7763005539336193616}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Moving Platform
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395806290775198432}
   - component: {fileID: 7255145001521008249}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform
   m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
